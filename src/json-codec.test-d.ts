@@ -5,7 +5,7 @@ test("stringify retains type", () => {
 	const encoded = codec.stringify({
 		key: "value",
 	});
-	
+
 	assertType<codec.JsonEncoded<{ key: string }>>(encoded);
 
 	// @ts-expect-error Cannot assign a string to a number
