@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/skyrpex/json-codec/compare/v1.0.0...v1.0.1) (2025-02-06)
+
+
+### Bug Fixes
+
+* go back to unscoped package name ([#3](https://github.com/skyrpex/json-codec/issues/3)) ([527106f](https://github.com/skyrpex/json-codec/commit/527106fc2e4b4a727cbcc1090a4d8a672f574163))
+* release workflow ([3f8b56f](https://github.com/skyrpex/json-codec/commit/3f8b56f2cab3bb792f0cd8122430cb515854cf79))
+
 ## 1.0.0 (2025-02-06)
 
 
