@@ -1,6 +1,6 @@
-# @skyrpex/json-codec
+# json-codec
 
-Encodes and decodes JS objects into a JSON string while retaining the original object type.
+Serializes JSON expressions while retaining the original object type.
 
 Accepts the following primitives, including arrays and objects:
 
@@ -13,13 +13,13 @@ Accepts the following primitives, including arrays and objects:
 ## Installation
 
 ```sh
-npm install @skyrpex/json-codec
+npm install json-codec
 ```
 
 ## Usage
 
 ```ts
-import * as jsonCodec from "@skyrpex/json-codec";
+import * as jsonCodec from "json-codec";
 
 const encoded = jsonCodec.stringify({
 	key: "value",
@@ -33,5 +33,5 @@ const decoded = jsonCodec.parse(encoded);
 ## Other codecs
 
 - [@skyrpex/string-codec](https://github.com/skyrpex/string-codec)
-- [@skyrpex/devalue-codec](https://github.com/skyrpex/devalue-codec)
-- [@skyrpex/superjson-codec](https://github.com/skyrpex/superjson-codec)
+- [devalue-codec](https://github.com/skyrpex/devalue-codec)
+- [superjson-codec](https://github.com/skyrpex/superjson-codec)
