@@ -21,11 +21,13 @@ export type JsonSerializable =
 	| JsonSerializableRecord
 	| JsonSerializableRecord[];
 
-export const stringify = <T extends JsonSerializable>(value: T) =>
-	JSON.stringify(value) as JsonEncoded<T>;
+export function stringify<T extends JsonSerializable>(value: T) {
+	return JSON.stringify(value) as JsonEncoded<T>;
+}
 
-export const parse = <T extends JsonSerializable>(json: JsonEncoded<T>) =>
-	JSON.parse(json) as T;
+export function parse<T extends JsonSerializable>(json: JsonEncoded<T>) {
+	return JSON.parse(json) as T;
+}
 
 declare const type: unique symbol;
 export type JsonEncoded<T extends JsonSerializable = JsonSerializable> = Opaque<

@@ -5,7 +5,7 @@ test("stringifies correctly", () => {
 	expect(
 		codec.stringify({
 			key: "value",
-		})
+		}),
 	).toEqual('{"key":"value"}');
 });
 
@@ -14,8 +14,8 @@ test("parses correctly", () => {
 		codec.parse(
 			codec.stringify({
 				key: "value",
-			})
-		)
+			}),
+		),
 	).toEqual({
 		key: "value",
 	});
