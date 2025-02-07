@@ -1,6 +1,6 @@
 {
 	"name": "json-codec",
-	"version": "1.0.3",
+	"version": "1.1.0",
 	"description": "Serializes JSON expressions while retaining the original object type",
 	"author": {
 		"name": "Cristian Pallarés",
