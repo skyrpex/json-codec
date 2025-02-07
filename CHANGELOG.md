@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/skyrpex/json-codec/compare/v1.0.3...v1.1.0) (2025-02-07)
+
+
+### Features
+
+* add check type ([3950d77](https://github.com/skyrpex/json-codec/commit/3950d770f52e46a6811878a388586ae590165f68))
+* export forbidden types ([ce2a0d7](https://github.com/skyrpex/json-codec/commit/ce2a0d7f1cafcb93342825e0d4c3225ba9f9b41d))
+
 ## [1.0.3](https://github.com/skyrpex/json-codec/compare/v1.0.2...v1.0.3) (2025-02-07)
 
 
