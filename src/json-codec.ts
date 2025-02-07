@@ -11,7 +11,7 @@ export type SerializablePrimitive =
 
 export type Serializable = SerializableRecord<SerializablePrimitive>;
 
-type Forbidden =
+export type Forbidden =
 	| symbol
 	| Date
 	| bigint
