@@ -6,10 +6,10 @@ test("stringify retains type", () => {
 		key: "value",
 	});
 
-	assertType<codec.JsonEncoded<{ key: string }>>(encoded);
+	assertType<codec.Stringified<{ key: string }>>(encoded);
 
 	// @ts-expect-error Cannot assign a string to a number
-	assertType<codec.JsonEncoded<{ key: number }>>(encoded);
+	assertType<codec.Stringified<{ key: number }>>(encoded);
 });
 
 test("parse retains type", () => {

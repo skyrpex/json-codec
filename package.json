@@ -14,7 +14,7 @@
 		"test": "vitest --typecheck"
 	},
 	"dependencies": {
-		"opaque-type": "^1.0.0"
+		"codec-builder": "^1.0.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",

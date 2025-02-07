@@ -1,36 +1,36 @@
-import type { Opaque } from "opaque-type";
+import { parser, stringifier } from "codec-builder";
 
-export type JsonSerializablePrimitive =
-	| string
-	| number
-	| boolean
-	| undefined
-	| null;
+export type { Stringified } from "codec-builder";
 
-export interface JsonSerializableRecord {
-	[key: string]:
-		| JsonSerializablePrimitive
-		| JsonSerializablePrimitive[]
-		| JsonSerializableRecord
-		| JsonSerializableRecord[];
-}
+export type Serializable = string | number | boolean | undefined | null;
 
-export type JsonSerializable =
-	| JsonSerializablePrimitive
-	| JsonSerializablePrimitive[]
-	| JsonSerializableRecord
-	| JsonSerializableRecord[];
+type Forbidden =
+	| symbol
+	| Date
+	| bigint
+	| Map<unknown, unknown>
+	| Set<unknown>
+	| Int8Array
+	| Int16Array
+	| Int32Array
+	| Uint8Array
+	| Uint16Array
+	| Uint32Array
+	| Uint8ClampedArray
+	| Error
+	| RegExp
+	| URL
+	// biome-ignore lint/complexity/noBannedTypes: we need to forbid Function
+	| Function;
 
-export function stringify<T extends JsonSerializable>(value: T) {
-	return JSON.stringify(value) as JsonEncoded<T>;
-}
+/**
+ * Serializes a {@link Serializable} object to a string.
+ */
+// @__NO_SIDE_EFFECTS__
+export const stringify = stringifier<Serializable, Forbidden>(JSON.stringify);
 
-export function parse<T extends JsonSerializable>(json: JsonEncoded<T>) {
-	return JSON.parse(json) as T;
-}
-
-declare const type: unique symbol;
-export type JsonEncoded<T extends JsonSerializable = JsonSerializable> = Opaque<
-	string,
-	{ readonly [type]: T }
->;
+/**
+ * Parses a stringified {@link Serializable} object to its original value.
+ */
+// @__NO_SIDE_EFFECTS__
+export const parse = parser<Serializable>(JSON.parse);
