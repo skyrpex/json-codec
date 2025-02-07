@@ -1,4 +1,4 @@
-import { type SerializableRecord, parser, stringifier } from "codec-builder";
+import * as codecBuilder from "codec-builder";
 
 export type { Stringified } from "codec-builder";
 
@@ -9,7 +9,8 @@ export type SerializablePrimitive =
 	| undefined
 	| null;
 
-export type Serializable = SerializableRecord<SerializablePrimitive>;
+export type Serializable =
+	codecBuilder.SerializableRecord<SerializablePrimitive>;
 
 export type Forbidden =
 	| symbol
@@ -30,16 +31,23 @@ export type Forbidden =
 	// biome-ignore lint/complexity/noBannedTypes: we need to forbid Function
 	| Function;
 
+export type Check<T> = codecBuilder.Serializable<
+	T,
+	SerializablePrimitive,
+	Forbidden
+>;
+
 /**
  * Serializes a {@link SerializablePrimitive} object to a string.
  */
 // @__NO_SIDE_EFFECTS__
-export const stringify = stringifier<SerializablePrimitive, Forbidden>(
-	JSON.stringify,
-);
+export const stringify = codecBuilder.stringifier<
+	SerializablePrimitive,
+	Forbidden
+>(JSON.stringify);
 
 /**
  * Parses a stringified {@link SerializablePrimitive} object to its original value.
  */
 // @__NO_SIDE_EFFECTS__
-export const parse = parser<SerializablePrimitive>(JSON.parse);
+export const parse = codecBuilder.parser<SerializablePrimitive>(JSON.parse);
