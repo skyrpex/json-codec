@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/skyrpex/json-codec/compare/v1.0.1...v1.0.2) (2025-02-07)
+
+
+### Bug Fixes
+
+* handle interface types ([1caee4d](https://github.com/skyrpex/json-codec/commit/1caee4df745ed604854a2bef1759ac2318d366c4))
+
 ## [1.0.1](https://github.com/skyrpex/json-codec/compare/v1.0.0...v1.0.1) (2025-02-06)
 
 
