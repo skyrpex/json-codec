@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/skyrpex/json-codec/compare/v1.0.2...v1.0.3) (2025-02-07)
+
+
+### Bug Fixes
+
+* convert Serializable to a record type ([4620620](https://github.com/skyrpex/json-codec/commit/462062015f44870a86113383aa2c77957dc22b74))
+
 ## [1.0.2](https://github.com/skyrpex/json-codec/compare/v1.0.1...v1.0.2) (2025-02-07)
 
 
