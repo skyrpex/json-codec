@@ -1,8 +1,15 @@
-import { parser, stringifier } from "codec-builder";
+import { type SerializableRecord, parser, stringifier } from "codec-builder";
 
 export type { Stringified } from "codec-builder";
 
-export type Serializable = string | number | boolean | undefined | null;
+export type SerializablePrimitive =
+	| string
+	| number
+	| boolean
+	| undefined
+	| null;
+
+export type Serializable = SerializableRecord<SerializablePrimitive>;
 
 type Forbidden =
 	| symbol
@@ -24,13 +31,15 @@ type Forbidden =
 	| Function;
 
 /**
- * Serializes a {@link Serializable} object to a string.
+ * Serializes a {@link SerializablePrimitive} object to a string.
  */
 // @__NO_SIDE_EFFECTS__
-export const stringify = stringifier<Serializable, Forbidden>(JSON.stringify);
+export const stringify = stringifier<SerializablePrimitive, Forbidden>(
+	JSON.stringify,
+);
 
 /**
- * Parses a stringified {@link Serializable} object to its original value.
+ * Parses a stringified {@link SerializablePrimitive} object to its original value.
  */
 // @__NO_SIDE_EFFECTS__
-export const parse = parser<Serializable>(JSON.parse);
+export const parse = parser<SerializablePrimitive>(JSON.parse);
