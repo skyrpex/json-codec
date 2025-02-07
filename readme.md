@@ -19,15 +19,13 @@ npm install json-codec
 ## Usage
 
 ```ts
-import * as jsonCodec from "json-codec";
+import { stringify, parse } from "json-codec";
 
-const encoded = jsonCodec.stringify({
+const encoded = stringify({
 	key: "value",
 });
-// encoded = "{"key":"value"}"
 
-const decoded = jsonCodec.parse(encoded);
-// decoded = { key: "value" }
+const decoded = parse(encoded);
 ```
 
 ## Other codecs
